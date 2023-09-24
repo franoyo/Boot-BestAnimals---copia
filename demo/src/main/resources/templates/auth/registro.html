@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>registro</title>
+    <link rel="stylesheet" th:href="@{/css/style3.css}">
+</head>
+<body>
+    <div class="maincointainer1" th:object="${userModel}">
+        <div th:if="${#fields.hasErrors()}">
+           <div th:replace="~{alerts/alert_register}">
+           </div>
+           <script>
+            const alerta=document.getElementById("main-container");
+            setTimeout(() => {
+                alerta.classList.add("mostrar")
+            }, 500);
+            </script>
+        </div>
+<div class="contenido1"><header class="logo">
+<a class="fix" th:href="@{/index}"><img class="logeishon" th:src="@{/img/best animal2-01 (1).png}" alt="logo">
+</a>
+</header>
+<img class="gato" th:src="@{/img/pussy.PNG}" alt="gato">
+</div>
+<div class="contenido2">
+<h1 class="register">REGISTRARSE</h1>
+<form class="formulario" th:action="@{/auth/guardarUsuario}" method="post">
+<input class="reg" th:field="*{nombre}" type="text" placeholder="Nombre:"  required>
+
+<input class="reg" th:field="*{apellido}" type="text" placeholder="Apellido:"  required>
+<input class="reg" th:field="*{documento}" type="number" placeholder="Documento:"  required>
+<input class="reg" th:field="*{direccion}" type="text" placeholder="Direccion:" required>
+<input class="reg" th:field="*{celular}" type="number" placeholder="Celular:" required>
+<input class="reg" th:field="*{email}" type="email" placeholder="Email:" required>
+<input class="reg" th:field="*{password}" type="password" placeholder="Contraseña:" required>
+<input class="reg" name="password_confirmation" type="password" placeholder="confirmar contraseña" required>
+<input class="reg1"  type="submit" value="FINALIZADO">
+</form>
+
+</div>
+    </div>
+    <footer class="fnn">
+<div class="finn">
+    <p class="vet">2022 Clínica Veterinaria Best Animals, todos los derechos reservados </p>
+</div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/style69.css}">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main-container" class="container-alert">
+<div class="alert-body">
+    <div class="container-image">
+        <button class="cerrate" id="cloze" onclick="cerrar()">X</button>
+        <img class="gif-perro" th:src="@{/img/animal-imagen-animada-0013.gif}" alt="gif">
+    </div>
+    <div class="container-text">
+    
+<div th:each="error : ${#fields.errors()}" th:text="${error}"></div>
+    </div>
+</div>
+
+    </div>
+    <script>
+        function cerrar(){
+const modal=document.getElementById("main-container")
+modal.classList.remove("mostrar");
+
+        }
+    </script>
+    
+</body>
+</html>
